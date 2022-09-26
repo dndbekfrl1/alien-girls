@@ -33,7 +33,7 @@ const ManagerLayout = styled.div`
 `;
 
 function Start() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <Layout>
