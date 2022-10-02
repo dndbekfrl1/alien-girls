@@ -12,7 +12,10 @@ interface Props {
   onClose?: any;
 }
 
-const Layout = styled.div``;
+const Layout = styled.div`
+  position: absolute;
+  cursor: pointer;
+`;
 
 function Window({
   open,
