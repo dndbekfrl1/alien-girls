@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import Music from 'components/Common/TaskBar/Music';
 import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { appState } from 'store';
 
 const Height = 40;
@@ -64,7 +64,7 @@ const AppBlock = styled.div<{ isActive: boolean }>`
 `;
 
 function TaskBar() {
-  const app = useRecoilValue(appState);
+  const [app, setApp] = useRecoilState(appState);
   const { id: activateId, apps } = app;
 
   return (
@@ -79,6 +79,7 @@ function TaskBar() {
                   className='applications'
                   key={id}
                   isActive={id === activateId}
+                  onClick={() => setApp((prev) => ({ ...prev, id }))}
                 >
                   <span>
                     <img src={src} alt='' />
