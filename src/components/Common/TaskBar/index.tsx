@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Sound from 'components/Common/TaskBar/Sound';
+import styled, { css } from 'styled-components';
+import Music from 'components/Common/TaskBar/Music';
 import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
 import { useRecoilValue } from 'recoil';
@@ -44,6 +44,13 @@ const AppBlock = styled.div<{ isActive: boolean }>`
     inset 2px 2px #dfdfdf;
   cursor: pointer;
 
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a,
+        inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+    `}
+
   span {
     display: flex;
     align-items: center;
@@ -81,7 +88,7 @@ function TaskBar() {
               ))}
           </div>
           <div className='right'>
-            <Sound />
+            <Music />
             <Clock />
           </div>
         </div>
