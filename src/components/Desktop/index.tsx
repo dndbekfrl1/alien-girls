@@ -16,10 +16,10 @@ const Layout = styled.div`
   position: relative;
   height: calc(100vh - 100vh * ${HEIGHT});
   padding: calc(100vw * ${calculatePercentage(200)})
-    calc(100vw * ${calculatePercentage(105)});
-  /* background: url(${Wallpaper}) no-repeat center; TODO */
-  /* background-size: cover; TODO */
-  background: #4ba88e;
+    calc(100vw * ${calculatePercentage(105)}) 0;
+  background: url(${Wallpaper}) no-repeat center;
+  background-size: cover;
+  overflow: hidden;
 `;
 
 function Desktop() {
