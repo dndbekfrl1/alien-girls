@@ -1,35 +1,44 @@
 import styled from 'styled-components';
 import { IconT } from './icon';
+import pointer from 'assets/icons/pointer.svg';
 
 interface Props {
   src: string;
-  text: string;
+  text?: string;
+  size?: number;
+  percentage?: number;
+  handleClick?: any;
 }
 
-const Layout = styled.div`
+const Layout = styled.div<{ size?: number; percentage?: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60px;
   color: white;
+  cursor: url(${pointer}), pointer;
+
+  ${({ size }) => size && `width: ${size}px`}
+  ${({ percentage }) => percentage && `width: calc(100vw * ${percentage})`}
 `;
 
-const Face = styled.div<{ src: string }>`
+const Face = styled.img<{ src: string }>`
+  box-sizing: border-box;
   width: 100%;
-  height: 45px;
   background: url(${({ src }) => src}) no-repeat center;
-
   background-size: contain;
-  font-size: 50px;
 `;
 
-function Icon({ src, text }: Props & IconT) {
+function Icon({ src, text, size, percentage, handleClick }: Props & IconT) {
   return (
-    <Layout>
+    <Layout size={size} percentage={percentage} onClick={handleClick}>
       <Face src={src} />
-      <div className='text'>{text}</div>
+      <div>{text}</div>
     </Layout>
   );
 }
 
 export default Icon;
+
+Icon.defaultProps = {
+  text: '',
+};
