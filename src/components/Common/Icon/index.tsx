@@ -14,7 +14,6 @@ const Layout = styled.div<{ size?: number; percentage?: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
   cursor: url(${pointer}), pointer;
 
   ${({ size }) => size && `width: ${size}px`}
@@ -28,11 +27,18 @@ const Face = styled.img<{ src: string }>`
   background-size: contain;
 `;
 
+const Typo = styled.div`
+  margin-top: 3em;
+  color: white;
+  font-size: 0.18em;
+  text-align: center;
+`;
+
 function Icon({ src, text, size, percentage, handleClick }: Props & IconT) {
   return (
     <Layout size={size} percentage={percentage} onClick={handleClick}>
       <Face src={src} />
-      <div>{text}</div>
+      <Typo>{text}</Typo>
     </Layout>
   );
 }
