@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 import window from 'assets/icons/windows.png';
 import { useState } from 'react';
+import calculatePercentage from 'utils/calculatePercentage';
 
-interface Props {
-  open?: boolean;
-}
-
-const Layout = styled.div``;
+const Layout = styled.div`
+  width: calc(100vw * ${calculatePercentage(326)});
+`;
 
 const Button = styled.button`
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+
   img {
-    width: 40px;
+    width: 40%;
   }
+
   p {
-    margin-left: 8px;
+    margin-left: 4px;
     font-size: 12px;
     font-weight: bold;
   }
@@ -39,7 +42,7 @@ function Start() {
     <Layout>
       <Button type='button' onClick={() => setOpen((prev) => !prev)}>
         <img src={window} alt='' />
-        <p>시작</p>
+        <p>Start</p>
       </Button>
       {open && (
         <ManagerLayout>

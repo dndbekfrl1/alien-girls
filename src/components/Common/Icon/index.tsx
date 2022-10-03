@@ -38,7 +38,7 @@ function Icon({ src, text, size, percentage, handleClick }: Props & IconT) {
   return (
     <Layout size={size} percentage={percentage} onClick={handleClick}>
       <Face src={src} />
-      <Typo>{text}</Typo>
+      {text && <Typo>{text}</Typo>}
     </Layout>
   );
 }

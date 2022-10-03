@@ -5,6 +5,14 @@ import Start from 'components/Common/TaskBar/Start';
 import { useRecoilState } from 'recoil';
 import { appState } from 'store';
 import calculatePercentage from 'utils/calculatePercentage';
+import questionMark from 'assets/icons/question-mark.png';
+import mp3 from 'assets/icons/mp3.png';
+import computer from 'assets/icons/computer.png';
+import {
+  DecoLayout,
+  Deco,
+  Divider,
+} from 'components/Common/TaskBar/TaskBar.styled';
 
 const HEIGHT = calculatePercentage(197, 'height');
 
@@ -23,6 +31,8 @@ const Layout = styled.div`
       align-items: center;
       justify-content: space-between;
       margin: 0;
+      padding: 4px calc(100vw * ${calculatePercentage(32)});
+      box-sizing: border-box;
       height: 100%;
 
       .left {
@@ -32,6 +42,7 @@ const Layout = styled.div`
       .right {
         display: flex;
         align-items: center;
+        height: 100%;
       }
     }
   }
@@ -74,6 +85,15 @@ function TaskBar() {
         <div className='window-body'>
           <div className='left'>
             <Start />
+            <DecoLayout>
+              <Divider reverse />
+              <Divider />
+              <Deco src={questionMark} />
+              <Deco src={mp3} />
+              <Deco src={computer} />
+              <Divider />
+              <Divider reverse />
+            </DecoLayout>
             {apps.length > 0 &&
               apps.map(({ id, name, src }) => (
                 <AppBlock
