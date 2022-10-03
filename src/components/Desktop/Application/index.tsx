@@ -5,9 +5,9 @@ import { useSetRecoilState } from 'recoil';
 import { appState } from 'store';
 import styled from 'styled-components';
 import { AppT } from 'types/app';
+import calculatePercentage from 'utils/calculatePercentage';
 
 interface Props extends AppT {
-  size?: number;
   style?: any;
   zIndex?: number;
   children: React.ReactElement;
@@ -24,7 +24,7 @@ const Container = styled.div`
   background: #fff;
 `;
 
-function Application({ id, name, src, size, style, zIndex, children }: Props) {
+function Application({ id, name, src, style, zIndex, children }: Props) {
   const setAppState = useSetRecoilState(appState);
   const [open, set] = useState(false);
 
@@ -53,7 +53,7 @@ function Application({ id, name, src, size, style, zIndex, children }: Props) {
   return (
     <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
-        <Icon text={name} src={src} size={size} />
+        <Icon text={name} src={src} percentage={PERCENTAGE} />
         {open && (
           <Window
             title={name}
@@ -70,3 +70,5 @@ function Application({ id, name, src, size, style, zIndex, children }: Props) {
 }
 
 export default Application;
+
+const PERCENTAGE = calculatePercentage(125);

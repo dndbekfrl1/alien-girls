@@ -4,8 +4,9 @@ import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
 import { useRecoilState } from 'recoil';
 import { appState } from 'store';
+import calculatePercentage from 'utils/calculatePercentage';
 
-const Height = 40;
+const HEIGHT = calculatePercentage(197, 'height');
 
 const Layout = styled.div`
   position: absolute;
@@ -13,7 +14,7 @@ const Layout = styled.div`
   bottom: 0;
 
   .window {
-    height: ${Height}px;
+    height: calc(100vh * ${HEIGHT});
     box-sizing: border-box;
 
     .window-body {
@@ -98,4 +99,4 @@ function TaskBar() {
   );
 }
 export default TaskBar;
-export { Height };
+export { HEIGHT };
