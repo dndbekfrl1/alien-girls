@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Music from 'components/Common/TaskBar/Music';
+import Sound from 'components/Common/TaskBar/Sound';
 import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
 import { useRecoilState } from 'recoil';
@@ -90,7 +90,7 @@ function TaskBar() {
               ))}
           </div>
           <div className='right'>
-            <Music />
+            <Sound />
             <Clock />
           </div>
         </div>
