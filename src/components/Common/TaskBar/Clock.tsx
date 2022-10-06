@@ -18,7 +18,7 @@ function Clock() {
         setAmPm('AM');
       }
 
-      if (HH == 0) HH = 12;
+      if (HH === 0) HH = 12;
 
       setHour(HH);
       setMinute(MM);
