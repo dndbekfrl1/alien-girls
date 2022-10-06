@@ -2,7 +2,8 @@
 
 * {
   font-family: 'Galmuri11';
-  cursor: url('/src/assets/images/cursor.svg'), pointer;
+  cursor: url('/src/assets/icons/cursor.svg')
+    url('/src/assets/icons/pointer.svg') auto;
 }
 
 body {
@@ -14,7 +15,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* TODO font-size */
+@media (min-width: 768px) {
+  body {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 5120px) {
+  body {
+    font-size: 33px;
+  }
 }
