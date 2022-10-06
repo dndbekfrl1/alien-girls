@@ -12,6 +12,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
 
   img {
     width: 40%;
