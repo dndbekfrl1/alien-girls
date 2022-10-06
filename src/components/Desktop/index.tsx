@@ -1,46 +1,11 @@
-import styled from 'styled-components';
-import { HEIGHT } from 'components/Common/TaskBar';
-import Wallpaper from 'assets/images/wallpaper.png';
 import Application from 'components/Desktop/Application';
+import { Layout, Left, Center } from 'components/Desktop/Desktop.styled';
 import folder from 'assets/icons/folder.png';
 import internet from 'assets/icons/internet.png';
 import memo from 'assets/icons/memo.png';
 import myComputer from 'assets/icons/my-computer.png';
 import myMusic from 'assets/icons/music.png';
 import myEarth from 'assets/icons/earth.png';
-import calculatePercentage from 'utils/calculatePercentage';
-
-const Layout = styled.div`
-  position: relative;
-  height: calc(100vh - (100vh * ${HEIGHT}));
-  background: url(${Wallpaper}) no-repeat center;
-  background-size: cover;
-  overflow: hidden;
-`;
-
-const Left = styled.div`
-  position: relative;
-  width: fit-content;
-  padding: calc(100vh * ${calculatePercentage(1000)})
-    calc(100vw * ${calculatePercentage(105)}); // TODO
-  height: 100%;
-
-  > * {
-    margin: 30px 0; // TODO
-  }
-`;
-
-const Center = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  top: calc(100vh * ${calculatePercentage(1450)}); // TODO
-
-  > * {
-    margin: 0 6px; // TODO
-  }
-`;
 
 function Desktop() {
   return (
