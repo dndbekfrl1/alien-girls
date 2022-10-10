@@ -6,18 +6,16 @@ interface Props {
   src: string;
   text?: string;
   size?: number;
-  percentage?: number;
   handleClick?: any;
 }
 
-const Layout = styled.div<{ size?: number; percentage?: number }>`
+const Layout = styled.div<{ size?: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: url(${pointer}), pointer;
 
   ${({ size }) => size && `width: ${size}px`}
-  ${({ percentage }) => percentage && `width: calc(100vw * ${percentage})`}
 `;
 
 const Face = styled.img<{ src: string }>`
@@ -28,14 +26,15 @@ const Face = styled.img<{ src: string }>`
 `;
 
 const Typo = styled.div`
-  margin-top: 1.4rem;
+  margin-top: 15px;
+  font-size: 33px;
   color: white;
   text-align: center;
 `;
 
-function Icon({ src, text, size, percentage, handleClick }: Props & IconT) {
+function Icon({ src, text, size, handleClick }: Props & IconT) {
   return (
-    <Layout size={size} percentage={percentage} onClick={handleClick}>
+    <Layout size={size} onClick={handleClick}>
       <Face src={src} />
       {text && <Typo>{text}</Typo>}
     </Layout>

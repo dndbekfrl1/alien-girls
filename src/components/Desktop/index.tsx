@@ -6,6 +6,10 @@ import memo from 'assets/icons/memo.png';
 import myComputer from 'assets/icons/my-computer.png';
 import myMusic from 'assets/icons/music.png';
 import myEarth from 'assets/icons/earth.png';
+import artworkA from 'assets/images/artworka.png';
+import artworkI from 'assets/images/artworki.jpeg';
+import artworkL from 'assets/images/artworkl.jpeg';
+import artworkE from 'assets/images/artworke.png';
 
 function Desktop() {
   return (
@@ -28,17 +32,53 @@ function Desktop() {
         </Application>
       </Left>
       <Center>
-        <Application id={6} src={folder} name='A'>
-          <div>A</div>
+        <Application id={6} src={folder} name='A' defaultX={745} defaultY={215}>
+          <img
+            src={artworkA}
+            alt=''
+            style={{ width: '1666px', height: '1838px' }}
+          />
         </Application>
-        <Application id={7} src={folder} name='L'>
-          <div>L</div>
+        <Application
+          id={7}
+          src={folder}
+          name='L'
+          defaultX={325}
+          defaultY={1450}
+        >
+          <div>
+            <img
+              src={artworkL}
+              alt=''
+              style={{ width: '1195px', height: '990px' }}
+            />
+          </div>
         </Application>
-        <Application id={8} src={folder} name='I'>
-          <div>A</div>
+        <Application
+          id={8}
+          src={folder}
+          name='I'
+          defaultX={2837}
+          defaultY={448}
+        >
+          <img
+            src={artworkI}
+            alt=''
+            style={{ width: '1389', height: '990px' }}
+          />
         </Application>
-        <Application id={9} src={folder} name='E'>
-          <div>E</div>
+        <Application
+          id={9}
+          src={folder}
+          name='E'
+          defaultX={3520}
+          defaultY={1860}
+        >
+          <img
+            src={artworkE}
+            alt=''
+            style={{ width: '1384px', height: '1123px' }}
+          />
         </Application>
         <Application id={10} src={folder} name='N'>
           <div>N</div>

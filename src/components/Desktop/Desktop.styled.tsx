@@ -1,38 +1,37 @@
 import styled from 'styled-components';
-import { HEIGHT } from 'components/Common/TaskBar';
 import Wallpaper from 'assets/images/wallpaper.png';
-import calculatePercentage from 'utils/calculatePercentage';
 
 const Layout = styled.div`
-  position: relative;
-  height: calc(100vh - (100vh * ${HEIGHT}));
+  display: flex;
+  height: calc(2880px - 190px);
   background: url(${Wallpaper}) no-repeat center;
   background-size: cover;
   overflow: hidden;
 `;
 
 const Left = styled.div`
-  position: relative;
   width: fit-content;
-  padding: calc(100vh * ${calculatePercentage(434, 'height')})
-    calc(100vw * ${calculatePercentage(105)});
-  height: 100%;
+  padding: 434px 104px 0;
 
-  > * {
-    margin: calc(100vh * ${calculatePercentage(88, 'height')}) 0;
+  > div {
+    margin-bottom: 175px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
 const Center = styled.div`
-  position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
   height: fit-content;
-  top: calc(100vh * ${calculatePercentage(780, 'height')});
-
+  margin-top: 780px;
+  margin-right: 1880px;
   > * {
-    margin: 0 calc(100vw * ${calculatePercentage(40)});
+    margin: 0 20px;
   }
 `;
 

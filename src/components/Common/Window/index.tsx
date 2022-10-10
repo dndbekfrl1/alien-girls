@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Draggable from 'react-draggable';
+import { BoxShadowOuter } from 'styles/BoxShadow.styled';
 
 interface Props {
   open?: boolean;
@@ -14,13 +15,42 @@ interface Props {
 
 const Layout = styled.div`
   position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  ${BoxShadowOuter}
+  padding: 22px;
+  font-size: 48px;
   cursor: pointer;
+
+  .window-body {
+    height: fit-content;
+  }
+
+  .title-bar {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    padding: 8px 42px;
+
+    .title-bar-text {
+      font-size: 48px;
+    }
+    .title-bar-controls {
+      button {
+        width: 87px;
+        height: 76px;
+        background-size: contain;
+        ${BoxShadowOuter}
+        font-size: 55px;
+      }
+    }
+  }
 `;
 
 function Window({
   open,
   title,
-  TitleBar,
   children,
   style,
   defaultX,

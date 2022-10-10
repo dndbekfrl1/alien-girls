@@ -1,15 +1,16 @@
-import Icon from 'components/Common/Icon';
-import Window from 'components/Common/Window';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { appState } from 'store';
 import styled from 'styled-components';
 import { AppT } from 'types/app';
-import calculatePercentage from 'utils/calculatePercentage';
+import Icon from 'components/Common/Icon';
+import Window from 'components/Common/Window';
 
 interface Props extends AppT {
   style?: any;
   zIndex?: number;
+  defaultX?: number;
+  defaultY?: number;
   children: React.ReactElement;
 }
 
@@ -20,11 +21,21 @@ const Layout = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 200px;
+  min-height: 200px;
+  height: 100%;
   background: #fff;
 `;
 
-function Application({ id, name, src, style, zIndex, children }: Props) {
+function Application({
+  id,
+  name,
+  src,
+  style,
+  defaultX,
+  defaultY,
+  zIndex,
+  children,
+}: Props) {
   const setAppState = useSetRecoilState(appState);
   const [open, set] = useState(false);
 
@@ -53,12 +64,14 @@ function Application({ id, name, src, style, zIndex, children }: Props) {
   return (
     <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
-        <Icon text={name} src={src} percentage={PERCENTAGE} />
+        <Icon text={name} src={src} size={130} />
         {open && (
           <Window
             title={name}
             open={open}
             style={{ ...style, zIndex: zIndex }}
+            defaultX={defaultX}
+            defaultY={defaultY}
             onClose={() => handleClose({ id, src, name })}
           >
             <Container>{children}</Container>
@@ -70,5 +83,3 @@ function Application({ id, name, src, style, zIndex, children }: Props) {
 }
 
 export default Application;
-
-const PERCENTAGE = calculatePercentage(125);

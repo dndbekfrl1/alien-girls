@@ -5,7 +5,6 @@ interface Props {
 }
 
 const LayoutLayout = styled.div`
-  position: relative;
   height: 100vh;
 `;
 

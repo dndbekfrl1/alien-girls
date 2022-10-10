@@ -1,26 +1,28 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import window from 'assets/icons/windows.png';
-import { useState } from 'react';
-import calculatePercentage from 'utils/calculatePercentage';
+import { BoxShadowOuter } from 'styles/BoxShadow.styled';
 
 const Layout = styled.div`
-  width: calc(100vw * ${calculatePercentage(326)});
+  width: 326px;
 `;
 
-const Button = styled.button`
+const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  ${BoxShadowOuter}
+  cursor: pointer;
 
   img {
-    width: 40%;
+    width: 30%;
   }
 
   p {
-    margin-left: 4px;
-    font-size: 12px;
+    margin-left: 22px;
     font-weight: bold;
   }
 `;
@@ -41,7 +43,8 @@ function Start() {
 
   return (
     <Layout>
-      <Button type='button' onClick={() => setOpen((prev) => !prev)}>
+      {/** TODO */}
+      <Button onClick={() => setOpen((prev) => false)}>
         <img src={window} alt='' />
         <p>Start</p>
       </Button>

@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+const Layout = styled.div`
+  font-size: 48px;
+`;
 
 function Clock() {
   const [hour, setHour] = useState<number>();
@@ -26,10 +31,10 @@ function Clock() {
   }, []);
 
   return (
-    <div>
+    <Layout>
       {hour}:{minute} <span />
       {amPm}
-    </div>
+    </Layout>
   );
 }
 export default Clock;

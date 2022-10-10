@@ -1,33 +1,25 @@
-import styled, { css } from 'styled-components';
-import calculatePercentage from 'utils/calculatePercentage';
+import styled from 'styled-components';
+import { BoxShadowInner, BoxShadowOuter } from 'styles/BoxShadow.styled';
 
 const DecoLayout = styled.div`
   display: flex;
   padding: 0 4px;
+  width: 444px;
 `;
 
 const Deco = styled.div<{ src: string }>`
-  width: calc(100vw * ${calculatePercentage(105)});
+  width: 105px;
   height: 100%;
-  margin: 0 5px; //TODO
+  margin: 0 10px;
   background: url(${({ src }) => src}) center no-repeat;
   background-size: contain;
 `;
 
 const Divider = styled.div<{ reverse?: boolean }>`
-  width: 4px;
-  margin: 0 1.5px;
+  width: 12px;
+  margin: 0 10px;
   background: silver;
-  ${({ reverse }) =>
-    reverse
-      ? css`
-          box-shadow: inset -1px -1px #ffffff, inset 1px 1px #929292,
-            inset -2px -2px #dfdfdf, inset 2px 2px #808080;
-        `
-      : css`
-          box-shadow: inset -1px -1px #929292, inset 1px 1px #fff,
-            inset -2px -2px grey, inset 2px 2px #dfdfdf;
-        `};
+  ${({ reverse }) => (reverse ? BoxShadowInner : BoxShadowOuter)}
 `;
 
 export { DecoLayout, Deco, Divider };
