@@ -40,9 +40,13 @@ const Layout = styled.div`
       button {
         width: 87px;
         height: 76px;
-        background-size: contain;
+        background-size: 58px;
+        background-position: center;
         ${BoxShadowOuter}
         font-size: 55px;
+      }
+      button[aria-label='Minimize'] {
+        background-position-y: bottom;
       }
     }
   }
