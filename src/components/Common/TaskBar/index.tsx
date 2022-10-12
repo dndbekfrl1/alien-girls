@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { appState } from 'store';
 import styled, { css } from 'styled-components';
-import Sound from 'components/Common/TaskBar/Sound';
+import Sound from 'components/Sound';
 import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
 import {
@@ -11,6 +11,7 @@ import {
 } from 'components/Common/TaskBar/TaskBar.styled';
 import { BoxShadowInner } from 'styles/BoxShadow.styled';
 import questionMark from 'assets/icons/question-mark.png';
+import diary from 'assets/icons/diary.png';
 import mp3 from 'assets/icons/mp3.png';
 import computer from 'assets/icons/computer.png';
 
@@ -20,7 +21,6 @@ const Layout = styled.div`
   bottom: 0;
 
   .window {
-    height: 190px;
     box-sizing: border-box;
 
     .window-body {
@@ -33,6 +33,7 @@ const Layout = styled.div`
       box-sizing: border-box;
       height: 100%;
       font-size: 55px;
+      background: silver;
 
       .left {
         display: flex;
@@ -114,7 +115,8 @@ function TaskBar() {
               ))}
           </div>
           <div className='right'>
-            <Deco src={mp3} style={{ width: '82px' }} />
+            <Deco src={questionMark} />
+            <Deco src={diary} />
             <Sound />
             <Clock />
           </div>

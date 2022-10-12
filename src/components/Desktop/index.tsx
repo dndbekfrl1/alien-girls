@@ -10,6 +10,7 @@ import artworkA from 'assets/images/artworka.png';
 import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
+import Music from 'components/Sound';
 
 function Desktop() {
   return (
@@ -25,7 +26,7 @@ function Desktop() {
           <div>My Computer</div>
         </Application>
         <Application id={4} src={myMusic} name='My Music'>
-          <div>My Music</div>
+          <div>우웅</div>
         </Application>
         <Application id={5} src={myEarth} name='My Earth'>
           <div>My Earth</div>

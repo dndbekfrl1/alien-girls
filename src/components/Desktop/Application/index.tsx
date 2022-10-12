@@ -7,6 +7,7 @@ import Icon from 'components/Common/Icon';
 import Window from 'components/Common/Window';
 
 interface Props extends AppT {
+  desktop?: boolean;
   style?: any;
   zIndex?: number;
   defaultX?: number;
@@ -21,7 +22,6 @@ const Layout = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  min-height: 200px;
   height: 100%;
   background: #fff;
 `;
@@ -30,6 +30,7 @@ function Application({
   id,
   name,
   src,
+  desktop = true,
   style,
   defaultX,
   defaultY,
@@ -64,7 +65,8 @@ function Application({
   return (
     <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
-        <Icon text={name} src={src} size={130} />
+        {desktop && <Icon text={name} src={src} size={130} />}
+        {!desktop && <Icon src={src} size={82} />}
         {open && (
           <Window
             title={name}
@@ -74,7 +76,7 @@ function Application({
             defaultY={defaultY}
             onClose={() => handleClose({ id, src, name })}
           >
-            <Container>{children}</Container>
+            <>{children}</>
           </Window>
         )}
       </>
