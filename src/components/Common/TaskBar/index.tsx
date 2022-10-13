@@ -17,36 +17,29 @@ import computer from 'assets/icons/computer.png';
 
 const Layout = styled.div`
   position: absolute;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   bottom: 0;
+  width: 100%;
+  height: 196px;
+  margin: 0;
+  padding: 26px 32px;
+  box-sizing: border-box;
+  font-size: 55px;
+  background: silver;
 
-  .window {
-    box-sizing: border-box;
+  .left {
+    display: flex;
+    height: 100%;
+  }
 
-    .window-body {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0;
-      padding: 26px 32px;
-      box-sizing: border-box;
-      height: 100%;
-      font-size: 55px;
-      background: silver;
-
-      .left {
-        display: flex;
-        height: 100%;
-      }
-      .right {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 28px;
-        ${BoxShadowInner}
-      }
-    }
+  .right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 28px;
+    ${BoxShadowInner}
   }
 `;
 
@@ -86,41 +79,36 @@ function TaskBar() {
 
   return (
     <Layout>
-      <div className='window'>
-        <div className='window-body'>
-          <div className='left'>
-            <Start />
-            <DecoLayout>
-              <Divider reverse />
-              <Divider />
-              <Deco src={questionMark} />
-              <Deco src={mp3} />
-              <Deco src={computer} />
-              <Divider />
-              <Divider reverse />
-            </DecoLayout>
-            {apps.length > 0 &&
-              apps.map(({ id, name, src }) => (
-                <AppBlock
-                  className='applications'
-                  key={id}
-                  isActive={id === activateId}
-                  onClick={() => setApp((prev) => ({ ...prev, id }))}
-                >
-                  <span>
-                    <img src={src} alt='' />
-                  </span>
-                  <span>{name}</span>
-                </AppBlock>
-              ))}
-          </div>
-          <div className='right'>
-            <Deco src={questionMark} />
-            <Deco src={diary} />
-            <Sound />
-            <Clock />
-          </div>
-        </div>
+      <div className='left'>
+        <Start />
+        <DecoLayout>
+          <Divider reverse />
+          <Divider />
+          <Deco src={questionMark} />
+          <Deco src={mp3} />
+          <Deco src={computer} />
+          <Divider />
+          <Divider reverse />
+        </DecoLayout>
+        {apps.length > 0 &&
+          apps.map(({ id, name, src }) => (
+            <AppBlock
+              className='applications'
+              key={id}
+              isActive={id === activateId}
+              onClick={() => setApp((prev) => ({ ...prev, id }))}
+            >
+              <span>
+                <img src={src} />
+              </span>
+              <span>{name}</span>
+            </AppBlock>
+          ))}
+      </div>
+      <div className='right'>
+        <Deco src={diary} style={{ width: '82px' }} />
+        <Sound />
+        <Clock />
       </div>
     </Layout>
   );
