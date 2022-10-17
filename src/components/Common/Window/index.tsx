@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import Draggable from 'react-draggable';
 import { BoxShadowOuter } from 'styles/BoxShadow.styled';
+import Icon from 'components/Common/Icon';
 
 interface Props {
   open?: boolean;
+  src?: string;
   title?: string;
   TitleBar?: React.ReactElement;
   style?: React.CSSProperties;
@@ -34,7 +36,13 @@ const Layout = styled.div`
     padding: 8px 42px;
 
     .title-bar-text {
+      display: flex;
+      align-items: center;
       font-size: 48px;
+
+      span {
+        margin-left: 16px;
+      }
     }
     .title-bar-controls {
       button {
@@ -54,6 +62,7 @@ const Layout = styled.div`
 
 function Window({
   open,
+  src,
   title,
   children,
   style,
@@ -67,7 +76,10 @@ function Window({
     <Draggable defaultPosition={{ x: defaultX || 0, y: defaultY || 0 }}>
       <Layout style={style} className='window'>
         <div className='title-bar'>
-          <div className='title-bar-text'>{title}</div>
+          <div className='title-bar-text'>
+            {src && <Icon src={src} size={60} />}
+            <span>{title}</span>
+          </div>
           <div className='title-bar-controls'>
             <button aria-label='Minimize' />
             <button aria-label='Maximize' />

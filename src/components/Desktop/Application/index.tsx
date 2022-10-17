@@ -70,6 +70,7 @@ function Application({
         {open && (
           <Window
             title={name}
+            src={src}
             open={open}
             style={{ ...style, zIndex: zIndex }}
             defaultX={defaultX}
