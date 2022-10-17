@@ -6,7 +6,7 @@ interface appStateT extends AppT {
 }
 
 const defaultAppState = {
-  id: -1,
+  id: 0,
   name: '',
   src: '',
   apps: [],
@@ -17,4 +17,4 @@ const appState = atom<appStateT>({
   default: defaultAppState,
 });
 
-export { appState };
+export { appState, defaultAppState };

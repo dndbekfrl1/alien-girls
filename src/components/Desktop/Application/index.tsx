@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { appState } from 'store';
+import { appState, defaultAppState } from 'store';
 import styled from 'styled-components';
 import { AppT } from 'types/app';
 import Icon from 'components/Common/Icon';
@@ -55,9 +55,7 @@ function Application({
   const handleClose = ({ id }: AppT) => {
     set(false);
     setAppState(({ apps }) => ({
-      id: -1,
-      name: '',
-      src: '',
+      ...defaultAppState,
       apps: apps.filter((app) => app.id !== id),
     }));
   };
