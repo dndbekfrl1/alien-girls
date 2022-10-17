@@ -11,6 +11,7 @@ import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
 import { AppEnum } from 'types/app';
+import Memo from 'components/Memo';
 
 function Desktop() {
   return (
@@ -24,7 +25,7 @@ function Desktop() {
           <div>internet explorer</div>
         </Application>
         <Application id={AppEnum.Memo} src={memo} name='Memo'>
-          <div>memo</div>
+          <Memo />
         </Application>
         <Application
           id={AppEnum.MyComputer}
@@ -76,11 +77,7 @@ function Desktop() {
           defaultX={2837}
           defaultY={448}
         >
-          <img
-            src={artworkI}
-            alt=''
-            style={{ width: '1389', height: '990px' }}
-          />
+          <img src={artworkI} style={{ width: '1389', height: '990px' }} />
         </Application>
         <Application
           id={AppEnum.E4}
