@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import { BoxShadowInner, BoxShadowOuter } from 'styles/BoxShadow.styled';
+import playIcon from 'assets/icons/sound/play.svg';
+import stopIcon from 'assets/icons/sound/stop.svg';
+import pauseIcon from 'assets/icons/sound/pause.svg';
+import nextIcon from 'assets/icons/sound/next.svg';
+import prevIcon from 'assets/icons/sound/prev.svg';
 
 const Layout = styled.div`
   width: 920px;
@@ -11,7 +16,7 @@ const Layout = styled.div`
     width: 100%;
     padding: 20px 0;
 
-    .sec {
+    .time {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,6 +50,20 @@ const Layout = styled.div`
 
     &.play {
       width: 249px;
+      background: url(${playIcon}) no-repeat center;
+    }
+
+    &.stop {
+      background: url(${stopIcon}) no-repeat center;
+    }
+
+    &.prev {
+      width: 166px;
+      background: url(${prevIcon}) no-repeat center;
+    }
+    &.next {
+      width: 166px;
+      background: url(${nextIcon}) no-repeat center;
     }
   }
 `;
