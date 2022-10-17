@@ -1,5 +1,10 @@
 import Application from 'components/Common/Application';
-import { Layout, Left, Center } from 'components/Desktop/Desktop.styled';
+import {
+  Layout,
+  Left,
+  Center,
+  QuizLayout,
+} from 'components/Desktop/Desktop.styled';
 import folder from 'assets/icons/folder.png';
 import internet from 'assets/icons/internet.png';
 import memo from 'assets/icons/memo.png';
@@ -10,8 +15,10 @@ import artworkA from 'assets/images/artworka.png';
 import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
+import internetExplorer from 'assets/images/internet-explorer.gif';
 import { AppEnum } from 'types/app';
 import Memo from 'components/Memo';
+import Quiz from 'components/Quiz';
 
 function Desktop() {
   return (
@@ -22,7 +29,7 @@ function Desktop() {
           src={internet}
           name='Internet Explorer'
         >
-          <div>internet explorer</div>
+          <img src={internetExplorer} />
         </Application>
         <Application id={AppEnum.Memo} src={memo} name='Memo'>
           <Memo />
@@ -43,11 +50,14 @@ function Desktop() {
       </Left>
       <Center>
         {ALIENGIRLS.map(({ src, style, ...props }) => (
-          <Application src={folder} {...props}>
+          <Application key={props.id} src={folder} {...props}>
             <img src={src} style={style} />
           </Application>
         ))}
       </Center>
+      <QuizLayout>
+        <Quiz />
+      </QuizLayout>
     </Layout>
   );
 }
