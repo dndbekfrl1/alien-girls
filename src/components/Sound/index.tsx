@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Layout, FlexBox } from './Sound.styled';
-import Application from 'components/Desktop/Application';
+import Application from 'components/Common/Application';
 import sound from 'assets/icons/sound.png';
 import { AppEnum } from 'types/app';
 const testMp3_1 = require('assets/music/test.mp3');

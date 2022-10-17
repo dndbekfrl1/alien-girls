@@ -1,4 +1,4 @@
-import Application from 'components/Desktop/Application';
+import Application from 'components/Common/Application';
 import { Layout, Left, Center } from 'components/Desktop/Desktop.styled';
 import folder from 'assets/icons/folder.png';
 import internet from 'assets/icons/internet.png';
@@ -10,7 +10,6 @@ import artworkA from 'assets/images/artworka.png';
 import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
-import Music from 'components/Sound';
 import { AppEnum } from 'types/app';
 
 function Desktop() {
