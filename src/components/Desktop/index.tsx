@@ -11,29 +11,44 @@ import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
 import Music from 'components/Sound';
+import { AppEnum } from 'types/app';
 
 function Desktop() {
   return (
     <Layout>
       <Left>
-        <Application id={1} src={internet} name='Internet Explorer'>
+        <Application
+          id={AppEnum.Internet}
+          src={internet}
+          name='Internet Explorer'
+        >
           <div>internet explorer</div>
         </Application>
-        <Application id={2} src={memo} name='Memo'>
+        <Application id={AppEnum.Memo} src={memo} name='Memo'>
           <div>memo</div>
         </Application>
-        <Application id={3} src={myComputer} name='My Computer'>
+        <Application
+          id={AppEnum.MyComputer}
+          src={myComputer}
+          name='My Computer'
+        >
           <div>My Computer</div>
         </Application>
-        <Application id={4} src={myMusic} name='My Music'>
+        <Application id={AppEnum.MyMusic} src={myMusic} name='My Music'>
           <div>우웅</div>
         </Application>
-        <Application id={5} src={myEarth} name='My Earth'>
+        <Application id={AppEnum.MyEarth} src={myEarth} name='My Earth'>
           <div>My Earth</div>
         </Application>
       </Left>
       <Center>
-        <Application id={6} src={folder} name='A' defaultX={745} defaultY={215}>
+        <Application
+          id={AppEnum.A1}
+          src={folder}
+          name='A'
+          defaultX={745}
+          defaultY={215}
+        >
           <img
             src={artworkA}
             alt=''
@@ -41,7 +56,7 @@ function Desktop() {
           />
         </Application>
         <Application
-          id={7}
+          id={AppEnum.L2}
           src={folder}
           name='L'
           defaultX={325}
@@ -56,7 +71,7 @@ function Desktop() {
           </div>
         </Application>
         <Application
-          id={8}
+          id={AppEnum.I3}
           src={folder}
           name='I'
           defaultX={2837}
@@ -69,7 +84,7 @@ function Desktop() {
           />
         </Application>
         <Application
-          id={9}
+          id={AppEnum.E4}
           src={folder}
           name='E'
           defaultX={3520}
@@ -81,20 +96,23 @@ function Desktop() {
             style={{ width: '1384px', height: '1123px' }}
           />
         </Application>
-        <Application id={10} src={folder} name='N'>
+        <Application id={AppEnum.N5} src={folder} name='N'>
           <div>N</div>
         </Application>
-        <Application id={11} src={folder} name='G'>
+        <Application id={AppEnum.G6} src={folder} name='G'>
           <div>G</div>
         </Application>
-        <Application id={12} src={folder} name='I'>
+        <Application id={AppEnum.I7} src={folder} name='I'>
           <div>I</div>
         </Application>
-        <Application id={13} src={folder} name='R'>
+        <Application id={AppEnum.R8} src={folder} name='R'>
           <div>R</div>
         </Application>
-        <Application id={14} src={folder} name='L'>
+        <Application id={AppEnum.L9} src={folder} name='L'>
           <div>L</div>
+        </Application>
+        <Application id={AppEnum.S10} src={folder} name='S'>
+          <div>S</div>
         </Application>
       </Center>
     </Layout>

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Layout, FlexBox } from './Sound.styled';
 import Application from 'components/Desktop/Application';
 import sound from 'assets/icons/sound.png';
+import { AppEnum } from 'types/app';
 const testMp3_1 = require('assets/music/test.mp3');
 const testMp3_2 = require('assets/music/test2.mp3');
 const testMp3_3 = require('assets/music/test3.mp3');
@@ -94,7 +95,7 @@ function Sound() {
   };
 
   return (
-    <Application id={9} src={sound} name='My Music' desktop={false}>
+    <Application id={AppEnum.Sound} src={sound} name='My Music' desktop={false}>
       <Layout>
         <div className='music-control'>
           <div className='time'>
