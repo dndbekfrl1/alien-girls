@@ -35,4 +35,10 @@ const Center = styled.div`
   }
 `;
 
-export { Layout, Left, Center };
+const QuizLayout = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export { Layout, Left, Center, QuizLayout };
