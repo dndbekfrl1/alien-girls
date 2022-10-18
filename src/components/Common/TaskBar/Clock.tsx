@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Layout = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 260px;
   font-size: 48px;
 `;
 
