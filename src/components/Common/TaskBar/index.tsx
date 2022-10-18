@@ -1,7 +1,6 @@
 import { useRecoilState } from 'recoil';
 import { appState } from 'store';
 import styled, { css } from 'styled-components';
-import Sound from 'components/Sound';
 import Clock from 'components/Common/TaskBar/Clock';
 import Start from 'components/Common/TaskBar/Start';
 import {
@@ -12,6 +11,7 @@ import {
 import { BoxShadowInner } from 'styles/BoxShadow.styled';
 import questionMark from 'assets/icons/question-mark.png';
 import diary from 'assets/icons/diary.png';
+import sound from 'assets/icons/sound.png';
 import mp3 from 'assets/icons/mp3.png';
 import computer from 'assets/icons/computer.png';
 
@@ -32,6 +32,11 @@ const Layout = styled.div`
   .left {
     display: flex;
     height: 100%;
+    width: 100%;
+
+    .app-block-contianer {
+      display: flex;
+    }
   }
 
   .right {
@@ -53,6 +58,9 @@ const AppBlock = styled.div<{ isActive: boolean }>`
   box-shadow: inset -6px -6px #0a0a0a, inset 6px 6px #fff, inset -7px -7px grey,
     inset 7px 7px #dfdfdf;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   ${({ isActive }) =>
     isActive &&
@@ -90,24 +98,26 @@ function TaskBar() {
           <Divider />
           <Divider reverse />
         </DecoLayout>
-        {apps.length > 0 &&
-          apps.map(({ id, name, src }) => (
-            <AppBlock
-              className='applications'
-              key={id}
-              isActive={id === activateId}
-              onClick={() => setApp((prev) => ({ ...prev, id }))}
-            >
-              <span>
-                <img src={src} />
-              </span>
-              <span>{name}</span>
-            </AppBlock>
-          ))}
+        <div className='app-block-contianer'>
+          {apps.length > 0 &&
+            apps.map(({ id, name, src }) => (
+              <AppBlock
+                className='applications'
+                key={id}
+                isActive={id === activateId}
+                onClick={() => setApp((prev) => ({ ...prev, id }))}
+              >
+                <span>
+                  <img src={src} />
+                </span>
+                <span>{name}</span>
+              </AppBlock>
+            ))}
+        </div>
       </div>
       <div className='right'>
         <Deco src={diary} style={{ width: '82px' }} />
-        <Sound />
+        <Deco src={sound} style={{ width: '82px' }} />
         <Clock />
       </div>
     </Layout>

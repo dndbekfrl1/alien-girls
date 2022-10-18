@@ -19,6 +19,7 @@ const Layout = styled.div`
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 10;
   box-sizing: border-box;
   ${BoxShadowOuter}
   padding: 22px;
