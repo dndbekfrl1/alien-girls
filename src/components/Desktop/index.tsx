@@ -1,5 +1,10 @@
 import Application from 'components/Common/Application';
-import { Layout, Left, Center } from 'components/Desktop/Desktop.styled';
+import {
+  Layout,
+  Left,
+  Center,
+  QuizLayout,
+} from 'components/Desktop/Desktop.styled';
 import folder from 'assets/icons/folder.png';
 import internet from 'assets/icons/internet.png';
 import memo from 'assets/icons/memo.png';
@@ -10,8 +15,10 @@ import artworkA from 'assets/images/artworka.png';
 import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
 import artworkE from 'assets/images/artworke.png';
+import internetExplorer from 'assets/images/internet-explorer.gif';
 import { AppEnum } from 'types/app';
 import Memo from 'components/Memo';
+import Quiz from 'components/Quiz';
 
 function Desktop() {
   return (
@@ -22,7 +29,7 @@ function Desktop() {
           src={internet}
           name='Internet Explorer'
         >
-          <div>internet explorer</div>
+          <img src={internetExplorer} />
         </Application>
         <Application id={AppEnum.Memo} src={memo} name='Memo'>
           <Memo />
@@ -42,77 +49,77 @@ function Desktop() {
         </Application>
       </Left>
       <Center>
-        <Application
-          id={AppEnum.A1}
-          src={folder}
-          name='A'
-          defaultX={745}
-          defaultY={215}
-        >
-          <img
-            src={artworkA}
-            alt=''
-            style={{ width: '1666px', height: '1838px' }}
-          />
-        </Application>
-        <Application
-          id={AppEnum.L2}
-          src={folder}
-          name='L'
-          defaultX={325}
-          defaultY={1450}
-        >
-          <div>
-            <img
-              src={artworkL}
-              alt=''
-              style={{ width: '1195px', height: '990px' }}
-            />
-          </div>
-        </Application>
-        <Application
-          id={AppEnum.I3}
-          src={folder}
-          name='I'
-          defaultX={2837}
-          defaultY={448}
-        >
-          <img src={artworkI} style={{ width: '1389', height: '990px' }} />
-        </Application>
-        <Application
-          id={AppEnum.E4}
-          src={folder}
-          name='E'
-          defaultX={3520}
-          defaultY={1860}
-        >
-          <img
-            src={artworkE}
-            alt=''
-            style={{ width: '1384px', height: '1123px' }}
-          />
-        </Application>
-        <Application id={AppEnum.N5} src={folder} name='N'>
-          <div>N</div>
-        </Application>
-        <Application id={AppEnum.G6} src={folder} name='G'>
-          <div>G</div>
-        </Application>
-        <Application id={AppEnum.I7} src={folder} name='I'>
-          <div>I</div>
-        </Application>
-        <Application id={AppEnum.R8} src={folder} name='R'>
-          <div>R</div>
-        </Application>
-        <Application id={AppEnum.L9} src={folder} name='L'>
-          <div>L</div>
-        </Application>
-        <Application id={AppEnum.S10} src={folder} name='S'>
-          <div>S</div>
-        </Application>
+        {ALIENGIRLS.map(({ src, style, ...props }) => (
+          <Application key={props.id} src={folder} {...props}>
+            <img src={src} style={style} />
+          </Application>
+        ))}
       </Center>
+      <QuizLayout>
+        <Quiz />
+      </QuizLayout>
     </Layout>
   );
 }
 
 export default Desktop;
+
+const ALIENGIRLS = [
+  {
+    id: AppEnum.A1,
+    name: 'A',
+    defaultX: 745,
+    defaultY: 215,
+    src: artworkA,
+    style: { width: '1666px', height: '1838px' },
+  },
+  {
+    id: AppEnum.L2,
+    name: 'L',
+    defaultX: 325,
+    defaultY: 1450,
+    src: artworkL,
+    style: { width: '1195px', height: '990px' },
+  },
+  {
+    id: AppEnum.I3,
+    name: 'I',
+    defaultX: 2837,
+    defaultY: 448,
+    src: artworkI,
+    style: { width: '1389', height: '990px' },
+  },
+  {
+    id: AppEnum.E4,
+    name: 'E',
+    defaultX: 3520,
+    defaultY: 1860,
+    src: artworkE,
+    style: { width: '1384px', height: '1123px' },
+  },
+  {
+    id: AppEnum.N5,
+    name: 'N',
+  },
+
+  {
+    id: AppEnum.G6,
+    name: 'G',
+  },
+  {
+    id: AppEnum.I7,
+    name: 'I',
+  },
+  {
+    id: AppEnum.R8,
+    name: 'R',
+  },
+  {
+    id: AppEnum.L9,
+    name: 'L',
+  },
+  {
+    id: AppEnum.S10,
+    name: 'S',
+  },
+];
