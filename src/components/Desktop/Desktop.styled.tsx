@@ -3,7 +3,7 @@ import Wallpaper from 'assets/images/wallpaper.png';
 
 const Layout = styled.div`
   display: flex;
-  height: calc(2880px - 190px);
+  height: calc(100vh - 190px);
   background: url(${Wallpaper}) no-repeat center;
   background-size: cover;
   overflow: hidden;
@@ -23,13 +23,18 @@ const Left = styled.div`
 `;
 
 const Center = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: fit-content;
   margin-top: 780px;
   margin-right: 1880px;
+  box-sizing: border-box;
+
   > * {
     margin: 0 20px;
   }
