@@ -41,9 +41,12 @@ const Center = styled.div`
 `;
 
 const QuizLayout = styled.div`
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  margin-top: 1938px;
 `;
 
 export { Layout, Left, Center, QuizLayout };
