@@ -1,8 +1,5 @@
 import { useRef, useState } from 'react';
-import { Layout, FlexBox } from './Sound.styled';
-import Application from 'components/Common/Application';
-import sound from 'assets/icons/sound.png';
-import { AppEnum } from 'types/app';
+import { Layout, FlexBox } from './Music.styled';
 const testMp3_1 = require('assets/music/test.mp3');
 const testMp3_2 = require('assets/music/test2.mp3');
 const testMp3_3 = require('assets/music/test3.mp3');
@@ -13,7 +10,7 @@ enum AudioID {
   Audio3,
 }
 
-function Sound() {
+function Music() {
   const pointer = useRef(AudioID.Audio1);
   const audioPlay = useRef<NodeJS.Timer>();
   const [audio] = useState<HTMLAudioElement>(
@@ -95,74 +92,72 @@ function Sound() {
   };
 
   return (
-    <Application id={AppEnum.Sound} src={sound} name='My Music' desktop={false}>
-      <Layout>
-        <div className='music-control'>
-          <div className='time'>
-            [{pointer.current + 1}] {playtime()}
+    <Layout>
+      <div className='music-control'>
+        <div className='time'>
+          [{pointer.current + 1}] {playtime()}
+        </div>
+        <div className='control'>
+          <div>
+            <button className={'play'} onClick={handlePlay}></button>
+            <button className='stop' onClick={handlePause}></button>
           </div>
-          <div className='control'>
-            <div>
-              <button className={'play'} onClick={handlePlay}></button>
-              <button className='stop' onClick={handlePause}></button>
-            </div>
-            <div>
-              <button className='prev' onClick={handlePrev}></button>
-              <button className='next' onClick={handleNext}></button>
-            </div>
+          <div>
+            <button className='prev' onClick={handlePrev}></button>
+            <button className='next' onClick={handleNext}></button>
           </div>
         </div>
+      </div>
 
-        <div className='music-info'>
-          <FlexBox>
-            <p>Artist: </p>
-            <select value={PLAY_LIST[pointer.current].artist} disabled>
-              <option value={PLAY_LIST[AudioID.Audio1].artist}>
-                {PLAY_LIST[AudioID.Audio1].artist}
-              </option>
-              <option value={PLAY_LIST[AudioID.Audio2].artist}>
-                {PLAY_LIST[AudioID.Audio2].artist}
-              </option>
-              <option value={PLAY_LIST[AudioID.Audio3].artist}>
-                {PLAY_LIST[AudioID.Audio3].artist}
-              </option>
-            </select>
-          </FlexBox>
-          <FlexBox>
-            <p>Title: </p>
-            <select disabled value={PLAY_LIST[pointer.current].title}>
-              <option value={AudioID.Audio1}>
-                {PLAY_LIST[AudioID.Audio1].title}
-              </option>
-              <option value={AudioID.Audio2}>
-                {PLAY_LIST[AudioID.Audio2].title}
-              </option>
-              <option value={AudioID.Audio3}>
-                {PLAY_LIST[AudioID.Audio3].title}
-              </option>
-            </select>
-          </FlexBox>
-          <FlexBox>
-            <p>Track: </p>
-            <select disabled value={PLAY_LIST[pointer.current].id}>
-              <option value={AudioID.Audio1}>
-                {PLAY_LIST[AudioID.Audio1].id}
-              </option>
-              <option value={AudioID.Audio2}>
-                {PLAY_LIST[AudioID.Audio2].id}
-              </option>
-              <option value={AudioID.Audio3}>
-                {PLAY_LIST[AudioID.Audio3].id}
-              </option>
-            </select>
-          </FlexBox>
-        </div>
-      </Layout>
-    </Application>
+      <div className='music-info'>
+        <FlexBox>
+          <p>Artist: </p>
+          <select value={PLAY_LIST[pointer.current].artist} disabled>
+            <option value={PLAY_LIST[AudioID.Audio1].artist}>
+              {PLAY_LIST[AudioID.Audio1].artist}
+            </option>
+            <option value={PLAY_LIST[AudioID.Audio2].artist}>
+              {PLAY_LIST[AudioID.Audio2].artist}
+            </option>
+            <option value={PLAY_LIST[AudioID.Audio3].artist}>
+              {PLAY_LIST[AudioID.Audio3].artist}
+            </option>
+          </select>
+        </FlexBox>
+        <FlexBox>
+          <p>Title: </p>
+          <select disabled value={PLAY_LIST[pointer.current].title}>
+            <option value={AudioID.Audio1}>
+              {PLAY_LIST[AudioID.Audio1].title}
+            </option>
+            <option value={AudioID.Audio2}>
+              {PLAY_LIST[AudioID.Audio2].title}
+            </option>
+            <option value={AudioID.Audio3}>
+              {PLAY_LIST[AudioID.Audio3].title}
+            </option>
+          </select>
+        </FlexBox>
+        <FlexBox>
+          <p>Track: </p>
+          <select disabled value={PLAY_LIST[pointer.current].id}>
+            <option value={AudioID.Audio1}>
+              {PLAY_LIST[AudioID.Audio1].id}
+            </option>
+            <option value={AudioID.Audio2}>
+              {PLAY_LIST[AudioID.Audio2].id}
+            </option>
+            <option value={AudioID.Audio3}>
+              {PLAY_LIST[AudioID.Audio3].id}
+            </option>
+          </select>
+        </FlexBox>
+      </div>
+    </Layout>
   );
 }
 
-export default Sound;
+export default Music;
 
 const PLAY_LIST = [
   { id: AudioID.Audio1, title: '우웅이', artist: '웅냥이', src: testMp3_1 },

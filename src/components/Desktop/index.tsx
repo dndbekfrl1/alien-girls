@@ -22,6 +22,7 @@ import artwork5 from 'assets/images/artwork5.png';
 import artwork6 from 'assets/images/artwork6.png';
 import artwork7 from 'assets/images/artwork7.png';
 import internetExplorer from 'assets/images/internet-explorer.gif';
+import Music from 'components/Music';
 
 function Desktop() {
   return (
@@ -34,7 +35,13 @@ function Desktop() {
         >
           <img src={internetExplorer} />
         </Application>
-        <Application id={AppEnum.Memo} src={memo} name='Memo'>
+        <Application
+          id={AppEnum.Memo}
+          src={memo}
+          name='Memo'
+          defaultX={1546}
+          defaultY={336}
+        >
           <Memo />
         </Application>
         <Application
@@ -44,8 +51,14 @@ function Desktop() {
         >
           <div>My Computer</div>
         </Application>
-        <Application id={AppEnum.MyMusic} src={myMusic} name='My Music'>
-          <div>우웅</div>
+        <Application
+          id={AppEnum.MyMusic}
+          src={myMusic}
+          name='My Music'
+          defaultX={602}
+          defaultY={517}
+        >
+          <Music />
         </Application>
         <Application id={AppEnum.MyEarth} src={myEarth} name='My Earth'>
           <div>My Earth</div>

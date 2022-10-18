@@ -20,12 +20,6 @@ const Layout = styled.div`
   margin: 0;
 `;
 
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  background: #fff;
-`;
-
 function Application({
   id,
   name,
