@@ -1,14 +1,22 @@
 import { useRef, useState } from 'react';
 import { Layout, FlexBox } from './Music.styled';
-const testMp3_1 = require('assets/music/test.mp3');
-const testMp3_2 = require('assets/music/test2.mp3');
-const testMp3_3 = require('assets/music/test3.mp3');
+const myStyle = require('assets/music/Mystyle.mp3');
+const harderBetterFasterStronger = require('assets/music/HarderBetterFasterStronger.mp3');
+const dameTuCosita = require('assets/music/DameTuCosita.mp3');
+const alien = require('assets/music/Alien.mp3');
+const englishmanInNewYork = require('assets/music/EnglishmanInNewYork.mp3');
+const virtualInsanity = require('assets/music/VirtualInsanity.mp3');
 
 enum AudioID {
   Audio1,
   Audio2,
   Audio3,
+  Audio4,
+  Audio5,
+  Audio6,
 }
+
+const LAST = AudioID.Audio6;
 
 function Music() {
   const pointer = useRef(AudioID.Audio1);
@@ -26,13 +34,10 @@ function Music() {
         setAuditoTime(audioTime_);
         const audioLength = Math.round(audio.duration);
 
-        if (audioTime_ === audioLength && pointer.current < AudioID.Audio3) {
+        if (audioTime_ === audioLength && pointer.current < LAST) {
           pointer.current += 1;
           switchTreck();
-        } else if (
-          audioTime === audioLength &&
-          pointer.current === AudioID.Audio3
-        ) {
+        } else if (audioTime === audioLength && pointer.current === LAST) {
           pointer.current = AudioID.Audio1;
           switchTreck();
         }
@@ -48,7 +53,7 @@ function Music() {
   };
 
   const handleNext = () => {
-    if (pointer.current === AudioID.Audio3) {
+    if (pointer.current === LAST) {
       pointer.current = AudioID.Audio1;
     } else {
       pointer.current += 1;
@@ -59,10 +64,16 @@ function Music() {
 
   const handlePrev = () => {
     if (pointer.current === AudioID.Audio1) {
-      pointer.current = AudioID.Audio3;
+      pointer.current = LAST;
     } else {
       pointer.current -= 1;
     }
+
+    switchTreck();
+  };
+
+  const handleChange = (id: AudioID) => {
+    pointer.current = id;
 
     switchTreck();
   };
@@ -112,44 +123,35 @@ function Music() {
       <div className='music-info'>
         <FlexBox>
           <p>Artist: </p>
-          <select value={PLAY_LIST[pointer.current].artist} disabled>
-            <option value={PLAY_LIST[AudioID.Audio1].artist}>
-              {PLAY_LIST[AudioID.Audio1].artist}
-            </option>
-            <option value={PLAY_LIST[AudioID.Audio2].artist}>
-              {PLAY_LIST[AudioID.Audio2].artist}
-            </option>
-            <option value={PLAY_LIST[AudioID.Audio3].artist}>
-              {PLAY_LIST[AudioID.Audio3].artist}
-            </option>
+          <select
+            value={PLAY_LIST[pointer.current].id}
+            onChange={(e) => handleChange(Number(e.target.value))}
+          >
+            {PLAY_LIST.map(({ id }) => (
+              <option value={id}>{PLAY_LIST[id].artist}</option>
+            ))}
           </select>
         </FlexBox>
         <FlexBox>
           <p>Title: </p>
-          <select disabled value={PLAY_LIST[pointer.current].title}>
-            <option value={AudioID.Audio1}>
-              {PLAY_LIST[AudioID.Audio1].title}
-            </option>
-            <option value={AudioID.Audio2}>
-              {PLAY_LIST[AudioID.Audio2].title}
-            </option>
-            <option value={AudioID.Audio3}>
-              {PLAY_LIST[AudioID.Audio3].title}
-            </option>
+          <select
+            value={PLAY_LIST[pointer.current].id}
+            onChange={(e) => handleChange(Number(e.target.value))}
+          >
+            {PLAY_LIST.map(({ id }) => (
+              <option value={id}>{PLAY_LIST[id].title}</option>
+            ))}
           </select>
         </FlexBox>
         <FlexBox>
           <p>Track: </p>
-          <select disabled value={PLAY_LIST[pointer.current].id}>
-            <option value={AudioID.Audio1}>
-              {PLAY_LIST[AudioID.Audio1].id + 1}
-            </option>
-            <option value={AudioID.Audio2}>
-              {PLAY_LIST[AudioID.Audio2].id + 1}
-            </option>
-            <option value={AudioID.Audio3}>
-              {PLAY_LIST[AudioID.Audio3].id + 1}
-            </option>
+          <select
+            value={PLAY_LIST[pointer.current].id}
+            onChange={(e) => handleChange(Number(e.target.value))}
+          >
+            {PLAY_LIST.map(({ id }) => (
+              <option value={id}>{id + 1}</option>
+            ))}
           </select>
         </FlexBox>
       </div>
@@ -160,7 +162,40 @@ function Music() {
 export default Music;
 
 const PLAY_LIST = [
-  { id: AudioID.Audio1, title: '-', artist: '-', src: testMp3_1 },
-  { id: AudioID.Audio2, title: '-', artist: '-', src: testMp3_2 },
-  { id: AudioID.Audio3, title: '-', artist: '-', src: testMp3_3 },
+  {
+    id: AudioID.Audio1,
+    title: 'My Style',
+    artist: 'Brown Eyed Girls',
+    src: myStyle,
+  },
+  {
+    id: AudioID.Audio2,
+    title: 'Harder, Better, Faster, Stronger',
+    artist: 'Daft Punk',
+    src: harderBetterFasterStronger,
+  },
+  {
+    id: AudioID.Audio3,
+    title: 'Dame Tu Cosita',
+    artist: 'El Chombo',
+    src: dameTuCosita,
+  },
+  {
+    id: AudioID.Audio4,
+    title: 'Virtual Insanity',
+    artist: 'Jamiroquai',
+    src: virtualInsanity,
+  },
+  {
+    id: AudioID.Audio5,
+    title: 'Englishman In New York',
+    artist: 'Sting',
+    src: englishmanInNewYork,
+  },
+  {
+    id: AudioID.Audio6,
+    title: 'ALIEN',
+    artist: 'LEE SUHYUN',
+    src: alien,
+  },
 ];
