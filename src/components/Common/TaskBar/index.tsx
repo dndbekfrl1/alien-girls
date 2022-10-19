@@ -91,8 +91,7 @@ const AppBlock = styled.div<{ isActive: boolean }>`
 `;
 
 function TaskBar() {
-  const [app, setApp] = useRecoilState(appState);
-  const { id: activateId, apps } = app;
+  const [{ id: activateId, apps }, setApp] = useRecoilState(appState);
 
   return (
     <Layout>

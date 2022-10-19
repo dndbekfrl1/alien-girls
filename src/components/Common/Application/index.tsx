@@ -70,6 +70,7 @@ function Application({
           Render({ open, set, id, name, src, defaultX, defaultY, zIndex })}
         {!Render && open && (
           <Window
+            id={id}
             title={name}
             src={src}
             open={open}
