@@ -33,10 +33,12 @@ const Layout = styled.div`
     display: flex;
     height: 100%;
     width: 100%;
+  }
 
-    .app-block-contianer {
-      display: flex;
-    }
+  .center {
+    display: flex;
+    height: 100%;
+    width: 2970px;
   }
 
   .right {
@@ -50,6 +52,7 @@ const Layout = styled.div`
 
 const AppBlock = styled.div<{ isActive: boolean }>`
   display: flex;
+  align-items: center;
   width: 950px;
   padding: 0 26px;
   margin-right: 20px;
@@ -75,6 +78,12 @@ const AppBlock = styled.div<{ isActive: boolean }>`
     height: 100%;
   }
 
+  .title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   img {
     height: 79px;
     margin-right: 31px;
@@ -98,7 +107,7 @@ function TaskBar() {
           <Divider />
           <Divider reverse />
         </DecoLayout>
-        <div className='app-block-contianer'>
+        <div className='center'>
           {apps.length > 0 &&
             apps.map(({ id, name, src }) => (
               <AppBlock
@@ -110,7 +119,7 @@ function TaskBar() {
                 <span>
                   <img src={src} />
                 </span>
-                <span>{name}</span>
+                <div className='title'>{name}</div>
               </AppBlock>
             ))}
         </div>
