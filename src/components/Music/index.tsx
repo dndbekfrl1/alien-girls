@@ -160,7 +160,7 @@ function Music() {
 export default Music;
 
 const PLAY_LIST = [
-  { id: AudioID.Audio1, title: '우웅이', artist: '웅냥이', src: testMp3_1 },
-  { id: AudioID.Audio2, title: '우웅이2', artist: '웅냥이2', src: testMp3_2 },
-  { id: AudioID.Audio3, title: '우웅이3', artist: '웅냥이3', src: testMp3_3 },
+  { id: AudioID.Audio1, title: '-', artist: '-', src: testMp3_1 },
+  { id: AudioID.Audio2, title: '-', artist: '-', src: testMp3_2 },
+  { id: AudioID.Audio3, title: '-', artist: '-', src: testMp3_3 },
 ];
