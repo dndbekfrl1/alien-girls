@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { QuizButton, Layout, Exploring } from './Quiz.styled';
 import styled from 'styled-components';
 import QuizLayout from './QuizLayout';
+import { BoxShadowOuter } from 'styles/BoxShadow.styled';
+import quizAni from 'assets/images/quiz/quiz.gif';
+import alien from 'assets/images/quiz/alien.png';
 
 enum Step {
   One = 1,
@@ -9,25 +12,85 @@ enum Step {
   Three,
 }
 
+const Deco = styled.div<{ src: string }>`
+  width: 105px;
+  height: 105px;
+  margin: 0 10px;
+  background: url(${({ src }) => src}) center no-repeat;
+  background-size: contain;
+`;
+
+const Typo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 118px 0 96px 0;
+  font-size: 60px;
+`;
+
+const Window = styled.div`
+  box-sizing: border-box;
+  ${BoxShadowOuter}
+  padding: 22px;
+  font-size: 48px;
+  cursor: pointer;
+
+  .window-body {
+    height: fit-content;
+  }
+
+  .title-bar {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    padding: 8px 42px;
+
+    .title-bar-text {
+      display: flex;
+      align-items: center;
+      font-size: 48px;
+
+      span {
+        margin-left: 16px;
+      }
+    }
+    .title-bar-controls {
+      button {
+        width: 87px;
+        height: 76px;
+        background-size: 58px;
+        background-position: center;
+        ${BoxShadowOuter}
+        font-size: 55px;
+      }
+      button[aria-label='Minimize'] {
+        background-position-y: bottom;
+      }
+    }
+  }
+`;
+
 const StepTwoLayout = styled(Layout)`
   flex-direction: column;
 
   .answer {
     display: flex;
     align-items: center;
-    height: 200px;
+    height: 120px;
 
     input {
       width: 1200px;
       height: 100%;
-      padding: 100px 60px;
-      font-size: 96px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      font-size: 52px;
     }
     button {
       margin-left: 20px;
-      width: 200px;
+      width: 366px;
       height: 100%;
-      font-size: 78px;
+      font-size: 52px;
+      font-weight: 400;
     }
   }
 `;
@@ -89,7 +152,25 @@ function Question({ onClose }: { onClose: any }) {
         {step !== Step.One && (
           <QuizLayout onClose={onClose}>
             <StepTwoLayout>
-              <p>정답을 입력하세요!</p>
+              <Window className='window'>
+                <div className='title-bar'>
+                  <div className='title-bar-text'>
+                    <span>file_x_you</span>
+                  </div>
+                  <div className='title-bar-controls'>
+                    <button aria-label='Minimize' />
+                    <button aria-label='Maximize' />
+                    <button aria-label='Close' />
+                  </div>
+                </div>
+                <div className='window-body'>
+                  <img src={quizAni} />
+                </div>
+              </Window>
+              <Typo>
+                당신의 찾은 외계인은 모두 몇 명인가요? <Deco src={alien} />
+                <Deco src={alien} />
+              </Typo>
               <div className='answer'>
                 <input
                   name='answer'
@@ -99,15 +180,17 @@ function Question({ onClose }: { onClose: any }) {
                 />
                 <button
                   onClick={() => {
+                    /** TODO 
                     if (answer === ANSWER) {
                       setIsAnswer(true);
                     } else {
                       setIsAnswer(false);
                     }
                     setIsSubmit(true);
+                    */
                   }}
                 >
-                  제출
+                  입력
                 </button>
               </div>
             </StepTwoLayout>
