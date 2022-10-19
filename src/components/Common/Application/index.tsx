@@ -7,7 +7,6 @@ import Icon from 'components/Common/Icon';
 import Window from 'components/Common/Window';
 
 interface Props extends AppT {
-  desktop?: boolean;
   style?: any;
   zIndex?: number;
   defaultX?: number;
@@ -24,7 +23,6 @@ function Application({
   id,
   name,
   src,
-  desktop = true,
   style,
   defaultX,
   defaultY,
@@ -57,8 +55,7 @@ function Application({
   return (
     <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
-        {desktop && <Icon text={name} src={src} size={130} />}
-        {!desktop && <Icon src={src} size={82} />}
+        <Icon text={name} src={src} size={130} />
         {open && (
           <Window
             title={name}

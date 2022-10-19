@@ -143,8 +143,4 @@ const ALIENGIRLS = [
     id: AppEnum.L9,
     name: 'L',
   },
-  {
-    id: AppEnum.S10,
-    name: 'S',
-  },
 ];
