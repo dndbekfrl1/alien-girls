@@ -27,26 +27,28 @@ const Center = styled.div`
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: fit-content;
-  margin-top: 780px;
-  margin-right: 1880px;
+  margin-top: 786px;
   box-sizing: border-box;
 
-  > * {
-    margin: 0 20px;
+  .folders {
+    display: flex;
+    padding-bottom: 240px;
+    margin-bottom: 768px;
+
+    > * {
+      margin: 0 20px;
+    }
   }
 `;
 
 const QuizLayout = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  margin-top: 1938px;
+  display: flex;
+  justify-content: center;
 `;
 
 export { Layout, Left, Center, QuizLayout };

@@ -65,15 +65,17 @@ function Desktop() {
         </Application>
       </Left>
       <Center>
-        {ALIENGIRLS.map(({ src, style, ...props }) => (
-          <Application key={props.id} src={folder} {...props}>
-            <img src={src} style={style} />
-          </Application>
-        ))}
+        <div className='folders'>
+          {ALIENGIRLS.map(({ src, style, ...props }) => (
+            <Application key={props.id} src={folder} {...props}>
+              <img src={src} style={style} />
+            </Application>
+          ))}
+        </div>
+        <QuizLayout>
+          <Quiz />
+        </QuizLayout>
       </Center>
-      <QuizLayout>
-        <Quiz />
-      </QuizLayout>
     </Layout>
   );
 }
