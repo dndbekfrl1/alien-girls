@@ -1,5 +1,9 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Window from 'components/Common/Window';
+import { AppT } from 'types/app';
 import { Layout, FlexBox } from './Music.styled';
+import { useSetRecoilState } from 'recoil';
+import { appState, defaultAppState } from 'store';
 const myStyle = require('assets/music/Mystyle.mp3');
 const harderBetterFasterStronger = require('assets/music/HarderBetterFasterStronger.mp3');
 const dameTuCosita = require('assets/music/DameTuCosita.mp3');
@@ -18,13 +22,29 @@ enum AudioID {
 
 const LAST = AudioID.Audio6;
 
-function Music() {
+function Music(
+  appInfoData: AppT & {
+    open?: boolean;
+    set?: any;
+    zIndex?: number;
+    defaultX?: number;
+    defaultY?: number;
+  }
+) {
+  const setAppState = useSetRecoilState(appState);
   const pointer = useRef(AudioID.Audio1);
   const audioPlay = useRef<NodeJS.Timer>();
   const [audio] = useState<HTMLAudioElement>(
     new Audio(PLAY_LIST.find((audio) => audio.id === pointer.current)?.src)
   );
   const [audioTime, setAuditoTime] = useState<number>();
+  const { open: isActive, set: setIsActive, ...appInfo } = appInfoData;
+
+  useEffect(() => {
+    if (!isActive) {
+      handlePause();
+    }
+  }, [isActive]);
 
   const handlePlay = () => {
     if (audio) {
@@ -102,60 +122,75 @@ function Music() {
     return playtimeFormat;
   };
 
-  return (
-    <Layout>
-      <div className='music-control'>
-        <div className='time'>
-          [{pointer.current + 1}] {playtime()}
-        </div>
-        <div className='control'>
-          <div>
-            <button className='play' onClick={handlePlay}></button>
-            <button className='stop' onClick={handlePause}></button>
-          </div>
-          <div>
-            <button className='prev' onClick={handlePrev}></button>
-            <button className='next' onClick={handleNext}></button>
-          </div>
-        </div>
-      </div>
+  const handleClose = () => {
+    setIsActive(false);
+    setAppState(({ apps }) => ({
+      ...defaultAppState,
+      apps: apps.filter((app) => app.id !== appInfo.id),
+    }));
+  };
 
-      <div className='music-info'>
-        <FlexBox>
-          <p>Artist: </p>
-          <select
-            value={PLAY_LIST[pointer.current].id}
-            onChange={(e) => handleChange(Number(e.target.value))}
-          >
-            {PLAY_LIST.map(({ id }) => (
-              <option value={id}>{PLAY_LIST[id].artist}</option>
-            ))}
-          </select>
-        </FlexBox>
-        <FlexBox>
-          <p>Title: </p>
-          <select
-            value={PLAY_LIST[pointer.current].id}
-            onChange={(e) => handleChange(Number(e.target.value))}
-          >
-            {PLAY_LIST.map(({ id }) => (
-              <option value={id}>{PLAY_LIST[id].title}</option>
-            ))}
-          </select>
-        </FlexBox>
-        <FlexBox>
-          <p>Track: </p>
-          <select
-            value={PLAY_LIST[pointer.current].id}
-            onChange={(e) => handleChange(Number(e.target.value))}
-          >
-            {PLAY_LIST.map(({ id }) => (
-              <option value={id}>{id + 1}</option>
-            ))}
-          </select>
-        </FlexBox>
-      </div>
-    </Layout>
+  return (
+    <Window
+      {...appInfo}
+      open={isActive}
+      onClose={handleClose}
+      style={{ width: 'fit-content' }}
+    >
+      <Layout>
+        <div className='music-control'>
+          <div className='time'>
+            [{pointer.current + 1}] {playtime()}
+          </div>
+          <div className='control'>
+            <div>
+              <button className='play' onClick={handlePlay}></button>
+              <button className='stop' onClick={handlePause}></button>
+            </div>
+            <div>
+              <button className='prev' onClick={handlePrev}></button>
+              <button className='next' onClick={handleNext}></button>
+            </div>
+          </div>
+        </div>
+
+        <div className='music-info'>
+          <FlexBox>
+            <p>Artist: </p>
+            <select
+              value={PLAY_LIST[pointer.current].id}
+              onChange={(e) => handleChange(Number(e.target.value))}
+            >
+              {PLAY_LIST.map(({ id }) => (
+                <option value={id}>{PLAY_LIST[id].artist}</option>
+              ))}
+            </select>
+          </FlexBox>
+          <FlexBox>
+            <p>Title: </p>
+            <select
+              value={PLAY_LIST[pointer.current].id}
+              onChange={(e) => handleChange(Number(e.target.value))}
+            >
+              {PLAY_LIST.map(({ id }) => (
+                <option value={id}>{PLAY_LIST[id].title}</option>
+              ))}
+            </select>
+          </FlexBox>
+          <FlexBox>
+            <p>Track: </p>
+            <select
+              value={PLAY_LIST[pointer.current].id}
+              onChange={(e) => handleChange(Number(e.target.value))}
+            >
+              {PLAY_LIST.map(({ id }) => (
+                <option value={id}>{id + 1}</option>
+              ))}
+            </select>
+          </FlexBox>
+        </div>
+      </Layout>
+    </Window>
   );
 }
 

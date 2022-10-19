@@ -57,9 +57,8 @@ function Desktop() {
           name='My Music'
           defaultX={602}
           defaultY={517}
-        >
-          <Music />
-        </Application>
+          Render={(appInfo) => <Music {...appInfo} />}
+        />
         <Application id={AppEnum.MyEarth} src={myEarth} name='My Earth'>
           <div>My Earth</div>
         </Application>

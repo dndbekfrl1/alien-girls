@@ -11,7 +11,16 @@ interface Props extends AppT {
   zIndex?: number;
   defaultX?: number;
   defaultY?: number;
-  children: React.ReactElement;
+  children?: React.ReactElement;
+  Render?: (
+    appInfo: AppT & {
+      open?: boolean;
+      set: any;
+      zIndex?: number;
+      defaultX?: number;
+      defaultY?: number;
+    }
+  ) => React.ReactElement;
 }
 
 const Layout = styled.div`
@@ -27,6 +36,7 @@ function Application({
   defaultX,
   defaultY,
   zIndex,
+  Render,
   children,
 }: Props) {
   const setAppState = useSetRecoilState(appState);
@@ -56,7 +66,9 @@ function Application({
     <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
         <Icon text={name} src={src} size={130} />
-        {open && (
+        {Render &&
+          Render({ open, set, id, name, src, defaultX, defaultY, zIndex })}
+        {!Render && open && (
           <Window
             title={name}
             src={src}
@@ -66,7 +78,7 @@ function Application({
             defaultY={defaultY}
             onClose={() => handleClose({ id, src, name })}
           >
-            <>{children}</>
+            <>{children && <>{children}</>}</>
           </Window>
         )}
       </>
