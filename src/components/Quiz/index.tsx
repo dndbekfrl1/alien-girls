@@ -72,6 +72,7 @@ const Window = styled.div`
 
 const StepTwoLayout = styled(Layout)`
   flex-direction: column;
+  margin-top: 240px; // TODO 개선필요
 
   .answer {
     display: flex;
