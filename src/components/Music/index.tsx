@@ -71,7 +71,7 @@ function Music() {
     if (audio) {
       audio.src = PLAY_LIST[pointer.current].src;
       audio.currentTime = 0;
-      audio.play();
+      handlePlay();
     }
   };
 
@@ -99,7 +99,7 @@ function Music() {
         </div>
         <div className='control'>
           <div>
-            <button className={'play'} onClick={handlePlay}></button>
+            <button className='play' onClick={handlePlay}></button>
             <button className='stop' onClick={handlePause}></button>
           </div>
           <div>
@@ -142,13 +142,13 @@ function Music() {
           <p>Track: </p>
           <select disabled value={PLAY_LIST[pointer.current].id}>
             <option value={AudioID.Audio1}>
-              {PLAY_LIST[AudioID.Audio1].id}
+              {PLAY_LIST[AudioID.Audio1].id + 1}
             </option>
             <option value={AudioID.Audio2}>
-              {PLAY_LIST[AudioID.Audio2].id}
+              {PLAY_LIST[AudioID.Audio2].id + 1}
             </option>
             <option value={AudioID.Audio3}>
-              {PLAY_LIST[AudioID.Audio3].id}
+              {PLAY_LIST[AudioID.Audio3].id + 1}
             </option>
           </select>
         </FlexBox>
