@@ -169,7 +169,7 @@ function Question({ onClose }: { onClose: any }) {
                 </div>
               </Window>
               <Typo>
-                당신의 찾은 외계인은 모두 몇 명인가요? <Deco src={alien} />
+                당신이 찾은 외계인은 모두 몇 명인가요? <Deco src={alien} />
                 <Deco src={alien} />
               </Typo>
               <div className='answer'>
