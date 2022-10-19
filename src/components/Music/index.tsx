@@ -134,6 +134,7 @@ function Music(
     <Window
       {...appInfo}
       open={isActive}
+      title={appInfo.name}
       onClose={handleClose}
       style={{ width: 'fit-content' }}
     >
