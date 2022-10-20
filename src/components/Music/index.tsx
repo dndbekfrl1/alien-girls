@@ -163,7 +163,9 @@ function Music(
               onChange={(e) => handleChange(Number(e.target.value))}
             >
               {PLAY_LIST.map(({ id }) => (
-                <option value={id}>{PLAY_LIST[id].artist}</option>
+                <option key={id} value={id}>
+                  {PLAY_LIST[id].artist}
+                </option>
               ))}
             </select>
           </FlexBox>
@@ -174,7 +176,9 @@ function Music(
               onChange={(e) => handleChange(Number(e.target.value))}
             >
               {PLAY_LIST.map(({ id }) => (
-                <option value={id}>{PLAY_LIST[id].title}</option>
+                <option key={id} value={id}>
+                  {PLAY_LIST[id].title}
+                </option>
               ))}
             </select>
           </FlexBox>
@@ -185,7 +189,9 @@ function Music(
               onChange={(e) => handleChange(Number(e.target.value))}
             >
               {PLAY_LIST.map(({ id }) => (
-                <option value={id}>{id + 1}</option>
+                <option key={id} value={id}>
+                  {id + 1}
+                </option>
               ))}
             </select>
           </FlexBox>
