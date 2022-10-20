@@ -37,7 +37,7 @@ const Layout = styled.div`
     .center {
       display: flex;
       height: 100%;
-      width: 3720px;
+      width: 3694px;
     }
   }
 
