@@ -14,6 +14,7 @@ import memo from 'assets/icons/memo.png';
 import myComputer from 'assets/icons/my-computer.png';
 import myMusic from 'assets/icons/music.png';
 import myEarth from 'assets/icons/earth.png';
+import myComputerGif from 'assets/images/my-computer.gif';
 import artworkA from 'assets/images/artworka.png';
 import artworkI from 'assets/images/artworki.jpeg';
 import artworkL from 'assets/images/artworkl.jpeg';
@@ -21,8 +22,11 @@ import artworkE from 'assets/images/artworke.png';
 import artwork5 from 'assets/images/artwork5.png';
 import artwork6 from 'assets/images/artwork6.png';
 import artwork7 from 'assets/images/artwork7.png';
+import artwork8 from 'assets/images/artwork8.jpeg';
 import internetExplorer from 'assets/images/internet-explorer.gif';
 import Music from 'components/Music';
+import myEarthGif from 'assets/images/quiz/space-ship.gif';
+import { Exploring } from 'components/Quiz/Quiz.styled';
 
 function Desktop() {
   return (
@@ -47,9 +51,12 @@ function Desktop() {
         <Application
           id={AppEnum.MyComputer}
           src={myComputer}
+          defaultX={908}
+          defaultY={602}
+          style={{ width: '1200px' }}
           name='My Computer'
         >
-          <div>My Computer</div>
+          <img width='100%' src={myComputerGif} />
         </Application>
         <Application
           id={AppEnum.MyMusic}
@@ -60,7 +67,10 @@ function Desktop() {
           Render={(appInfo) => <Music {...appInfo} />}
         />
         <Application id={AppEnum.MyEarth} src={myEarth} name='My Earth'>
-          <div>My Earth</div>
+          <Exploring>
+            <div className='space-ship' />
+            <p>EXPLORING...</p>
+          </Exploring>
         </Application>
       </Left>
       <Center>
@@ -136,6 +146,9 @@ const ALIENGIRLS = [
   {
     id: AppEnum.R8,
     name: 'R',
+    defaultX: 2937,
+    defaultY: 1098,
+    src: artwork8,
   },
   {
     id: AppEnum.L9,

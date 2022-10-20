@@ -12,8 +12,18 @@ const QuizButton = styled.div`
 
 const Layout = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 240px; // TODO 개선필요
+
+  button {
+    margin-left: 20px;
+    width: 366px;
+    height: 100%;
+    font-size: 52px;
+    font-weight: 400;
+  }
 `;
 
 const Exploring = styled.div`
@@ -21,16 +31,10 @@ const Exploring = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 30;
-  width: 100vw;
-  height: 100vh;
   background: #000;
-  font-size: 96px;
   color: #fff;
   letter-spacing: 10px;
+  padding: 100px 220px;
 
   .space-ship {
     width: 1260px;
