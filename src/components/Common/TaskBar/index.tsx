@@ -14,6 +14,7 @@ import diary from 'assets/icons/diary.png';
 import sound from 'assets/icons/sound.png';
 import mp3 from 'assets/icons/mp3.png';
 import computer from 'assets/icons/computer.png';
+import pointer from 'assets/icons/pointer.svg';
 
 const Layout = styled.div`
   position: absolute;
@@ -60,7 +61,7 @@ const AppBlock = styled.div<{ isActive: boolean }>`
   background: silver;
   box-shadow: inset -6px -6px #0a0a0a, inset 6px 6px #fff, inset -7px -7px grey,
     inset 7px 7px #dfdfdf;
-  cursor: pointer;
+  cursor: url(${pointer}), pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

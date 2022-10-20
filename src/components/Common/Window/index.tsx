@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import Draggable from 'react-draggable';
 import { BoxShadowOuter } from 'styles/BoxShadow.styled';
 import Icon from 'components/Common/Icon';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { appState } from 'store';
 import { AppEnum } from 'types/app';
+import pointer from 'assets/icons/pointer.svg';
 
 interface Props {
   id: AppEnum;
@@ -28,7 +29,7 @@ const Layout = styled.div<{ isActive: boolean }>`
   ${BoxShadowOuter}
   padding: 22px;
   font-size: 48px;
-  cursor: pointer;
+  cursor: url(${pointer}), pointer;
 
   .window-body {
     height: fit-content;

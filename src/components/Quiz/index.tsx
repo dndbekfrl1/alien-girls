@@ -35,7 +35,6 @@ const Window = styled.div`
   ${BoxShadowOuter}
   padding: 22px;
   font-size: 48px;
-  cursor: pointer;
 
   .window-body {
     height: fit-content;

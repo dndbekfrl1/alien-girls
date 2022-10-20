@@ -1,13 +1,14 @@
 import quizButton from 'assets/images/quiz/quiz-btn.png';
 import styled from 'styled-components';
 import spaceShip from 'assets/images/quiz/space-ship.gif';
+import pointer from 'assets/icons/pointer.svg';
 
 const QuizButton = styled.div`
   width: 919px;
   height: 155px;
   background: url(${quizButton}) no-repeat;
   background-size: cover;
-  cursor: pointer;
+  cursor: url(${pointer}), pointer;
 `;
 
 const Layout = styled.div`
