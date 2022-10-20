@@ -63,7 +63,7 @@ function Application({
   };
 
   return (
-    <Layout onClick={() => handleDoubleClick({ id, src, name })}>
+    <Layout onDoubleClick={() => handleDoubleClick({ id, src, name })}>
       <>
         <Icon text={name} src={src} size={130} />
         {Render &&
