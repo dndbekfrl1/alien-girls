@@ -33,12 +33,12 @@ const Layout = styled.div`
     display: flex;
     height: 100%;
     width: 100%;
-  }
 
-  .center {
-    display: flex;
-    height: 100%;
-    width: 2970px;
+    .center {
+      display: flex;
+      height: 100%;
+      width: 3720px;
+    }
   }
 
   .right {
