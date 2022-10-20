@@ -25,7 +25,6 @@ import artwork7 from 'assets/images/artwork7.png';
 import artwork8 from 'assets/images/artwork8.jpeg';
 import internetExplorer from 'assets/images/internet-explorer.gif';
 import Music from 'components/Music';
-import myEarthGif from 'assets/images/quiz/space-ship.gif';
 import { Exploring } from 'components/Quiz/Quiz.styled';
 
 function Desktop() {
@@ -80,6 +79,15 @@ function Desktop() {
               <img src={src} style={style} />
             </Application>
           ))}
+          <Application
+            id={AppEnum.Doc}
+            name='사용 방법'
+            src={folder}
+            defaultX={511}
+            defaultY={104}
+          >
+            <div></div>
+          </Application>
         </div>
         <QuizLayout>
           <Quiz />
