@@ -5,8 +5,8 @@ import QuizLayout from './QuizLayout';
 import { BoxShadowOuter } from 'styles/BoxShadow.styled';
 import quizAni from 'assets/images/quiz/quiz.gif';
 import alien from 'assets/images/quiz/alien.png';
-import answer from 'assets/images/quiz/answer.png';
-import wrong from 'assets/images/quiz/earth-jelly.png';
+import answer from 'assets/images/quiz/answer.gif';
+import wrong from 'assets/images/quiz/earth-jelly.gif';
 
 enum Step {
   One = 1,
@@ -109,7 +109,7 @@ const WrongLayout = styled(Layout)`
 function Correct() {
   return (
     <Layout>
-      <img src={answer} />
+      <img src={answer} width={'1260px'} height={'1080px'} />
       <Typo>
         정답입니다!! 외계인이 축하의 의미로 당신에게 작은 선물을 주고 갔습니다.
         <Deco src={alien} />
@@ -121,7 +121,7 @@ function Correct() {
 function Wrong({ handleRetry }: any) {
   return (
     <WrongLayout>
-      <img src={wrong} />
+      <img src={wrong} width={'1260px'} height={'1080px'} />
       <Typo>
         이런.. 틀렸습니다. 당신의 실수로 지구는 지구젤리가 되어버렸습니다.
         <Deco src={alien} />
