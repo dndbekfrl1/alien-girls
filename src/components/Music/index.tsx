@@ -4,12 +4,12 @@ import { AppT } from 'types/app';
 import { Layout, FlexBox } from './Music.styled';
 import { useSetRecoilState } from 'recoil';
 import { appState, defaultAppState } from 'store';
-const myStyle = require('assets/music/Mystyle.mp3');
-const harderBetterFasterStronger = require('assets/music/HarderBetterFasterStronger.mp3');
-const dameTuCosita = require('assets/music/DameTuCosita.mp3');
-const alien = require('assets/music/Alien.mp3');
-const englishmanInNewYork = require('assets/music/EnglishmanInNewYork.mp3');
-const virtualInsanity = require('assets/music/VirtualInsanity.mp3');
+const myStyle = require('assets/music/sample.mp3');
+const harderBetterFasterStronger = require('assets/music/sample.mp3');
+const dameTuCosita = require('assets/music/DameTuCosamplesita.mp3');
+const alien = require('assets/music/sample.mp3');
+const englishmanInNewYork = require('assets/music/sample.mp3');
+const virtualInsanity = require('assets/music/sample.mp3');
 
 enum AudioID {
   Audio1,
