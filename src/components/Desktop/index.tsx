@@ -6,6 +6,7 @@ import {
   QuizLayout,
 } from 'components/Desktop/Desktop.styled';
 import { AppEnum } from 'types/app';
+import Doc from 'components/Doc';
 import Memo from 'components/Memo';
 import Quiz from 'components/Quiz';
 import folder from 'assets/icons/folder.png';
@@ -22,7 +23,8 @@ import artworkE from 'assets/images/artworke.png';
 import artwork5 from 'assets/images/artwork5.png';
 import artwork6 from 'assets/images/artwork6.png';
 import artwork7 from 'assets/images/artwork7.png';
-import artwork8 from 'assets/images/artwork8.jpeg';
+import artwork8 from 'assets/images/artwork8.png';
+import artwork9 from 'assets/images/artwork9.png';
 import internetExplorer from 'assets/images/internet-explorer.gif';
 import Music from 'components/Music';
 import { Exploring } from 'components/Quiz/Quiz.styled';
@@ -41,7 +43,7 @@ function Desktop() {
         <Application
           id={AppEnum.Memo}
           src={memo}
-          name='Memo'
+          name='My Memo'
           defaultX={1546}
           defaultY={336}
         >
@@ -81,12 +83,12 @@ function Desktop() {
           ))}
           <Application
             id={AppEnum.Doc}
-            name='사용 방법'
+            name='사용 설명서'
             src={folder}
             defaultX={511}
             defaultY={104}
           >
-            <div></div>
+            <Doc />
           </Application>
         </div>
         <QuizLayout>
@@ -161,5 +163,8 @@ const ALIENGIRLS = [
   {
     id: AppEnum.L9,
     name: 'L',
+    defaultX: 1588,
+    defaultY: 1072,
+    src: artwork9,
   },
 ];
